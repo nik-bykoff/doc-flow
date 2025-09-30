@@ -1,122 +1,122 @@
-# Технічне завдання
-## Проєкт: DocFlow – система управління знаннями
+# Technical Specification
+## Project: DocFlow – Knowledge Management System
 
-### 1. Мета проєкту
-Розробити продукт корпоративної системи управління документацією та нотатками з підтримкою тегів, тек та базових інтеграцій.
-
----
-
-### 2. Основні ролі користувачів
-1. **Адміністратор**
-   - Керує користувачами та ролями.
-   - Налаштовує структуру доступу.
-   - Контролює інтеграції.
-
-2. **Редактор**
-   - Створює та редагує документи.
-   - Організовує контент у теках і тегах.
-
-3. **Читач**
-   - Має доступ до перегляду документів.
-   - Використовує пошук і навігацію.
+### 1. Project Goal
+Develop a corporate documentation and notes management system with support for tags, folders, and basic integrations.
 
 ---
 
-### 3. Функціональні вимоги
-#### 3.1 Управління документами
-- Створення двох типів документів:
-  - Звичайна сторінка (Markdown/HTML редактор).
-  - Нотатка (швидке створення коротких записів).
-- Організація документів у:
-  - Теги (можливість додавати кілька тегів до документа).
-  - Текову структуру (аналог файлової системи).
-- Пошук документів за:
-  - Назвою.
-  - Тегами.
-  - Автором.
+### 2. Main User Roles
+1. **Administrator**
+   - Manages users and roles.
+   - Configures access structure.
+   - Controls integrations.
 
-#### 3.2 Користувачі та права доступу
-- Реєстрація та авторизація (email + пароль).
-- Ролі: адміністратор, редактор, читач.
-- Доступ до документів відповідно до ролі.
+2. **Editor**
+   - Creates and edits documents.
+   - Organizes content in folders and tags.
 
-#### 3.3 Інтеграції
-- Підтримка інтеграції з Dropbox для зберігання файлів (мінімально – підключення через API).
-
-#### 3.4 Інтерфейс
-- Сучасний веб-інтерфейс.
-- Мінімалістичний дизайн з підтримкою тем (світла/темна).
-- Drag&Drop для завантаження файлів у документи.
+3. **Reader**
+   - Has access to view documents.
+   - Uses search and navigation.
 
 ---
 
-### 4. Нефункціональні вимоги
-- Система має бути доступна через веб-браузер.
-- Продуктивність: пошук та завантаження документа не більше 1 секунди при 10 000 документах.
-- Безпека: зберігання паролів у хешованому вигляді (bcrypt/argon2).
-- Масштабованість: підтримка контейнеризації (Docker).
-- API для інтеграцій: REST та базовий GraphQL.
+### 3. Functional Requirements
+#### 3.1 Document Management
+- Creation of two types of documents:
+  - Regular page (Markdown/HTML editor).
+  - Note (quick creation of short entries).
+- Organization of documents into:
+  - Tags (ability to add multiple tags to a document).
+  - Folder structure (analogous to file system).
+- Search for documents by:
+  - Title.
+  - Tags.
+  - Author.
+
+#### 3.2 Users and Access Rights
+- Registration and authorization (email + password).
+- Roles: administrator, editor, reader.
+- Access to documents according to role.
+
+#### 3.3 Integrations
+- Support for Dropbox integration for file storage (minimum – connection via API).
+
+#### 3.4 Interface
+- Modern web interface.
+- Minimalist design with theme support (light/dark).
+- Drag&Drop for uploading files to documents.
 
 ---
 
-### 5. Архітектура
-- **Frontend**: VueJS (SPA, підтримка Markdown-редактора).
-- **Backend**: NodeJS (NestJS або Express).
-- **База даних**: PostgreSQL (зберігання документів та користувачів).
-- **Файлове сховище**: інтеграція з Dropbox.
-- **Хостинг**: Docker, підготовка до Kubernetes.
-- **Аутентифікація**: JWT токени.
+### 4. Non-Functional Requirements
+- The system must be accessible via web browser.
+- Performance: search and document loading no more than 1 second with 10,000 documents.
+- Security: password storage in hashed form (bcrypt/argon2).
+- Scalability: containerization support (Docker).
+- API for integrations: REST and basic GraphQL.
+
+---
+
+### 5. Architecture
+- **Frontend**: VueJS (SPA, Markdown editor support).
+- **Backend**: NodeJS (NestJS or Express).
+- **Database**: PostgreSQL (storage of documents and users).
+- **File storage**: Dropbox integration.
+- **Hosting**: Docker, preparation for Kubernetes.
+- **Authentication**: JWT tokens.
 
 ---
 
 
-### 6. Етапи реалізації (MVP, 8 тижнів)
+### 6. Implementation Stages (MVP, 8 weeks)
 
-#### Тиждень 1
-- Налаштування середовища розробки (Frontend + Backend).
-- Створення базової структури бази даних (користувачі, документи, теги, теки).
-- Реєстрація та авторизація користувачів (JWT).
+#### Week 1
+- Development environment setup (Frontend + Backend).
+- Creation of basic database structure (users, documents, tags, folders).
+- User registration and authorization (JWT).
 
-#### Тиждень 2
-- Ролі користувачів (адміністратор, редактор, читач).
-- Створення документів двох типів: сторінка, нотатка.
-- Перегляд документів у простому інтерфейсі.
+#### Week 2
+- User roles (administrator, editor, reader).
+- Creation of two types of documents: page, note.
+- Viewing documents in a simple interface.
 
-#### Тиждень 3
-- Організація документів у тековій структурі.
-- Додавання тегів до документів.
-- Вивід документів у списках із можливістю фільтрації за тегами.
+#### Week 3
+- Organization of documents in folder structure.
+- Adding tags to documents.
+- Display of documents in lists with filtering by tags capability.
 
-#### Тиждень 4
-- Реалізація пошуку документів за назвою, автором і тегами.
-- Базова панель навігації по теках і тегах.
-- Оптимізація відображення документів (пагінація/ліміти).
+#### Week 4
+- Implementation of document search by title, author, and tags.
+- Basic navigation panel for folders and tags.
+- Optimization of document display (pagination/limits).
 
-#### Тиждень 5
-- Мінімалістичний дизайн інтерфейсу.
-- Тестування роботи з правами доступу.
+#### Week 5
+- Minimalist interface design.
+- Testing of access rights functionality.
 
-#### Тиждень 6
-- Інтеграція з Google Drive/Dropbox (API для зберігання файлів).
-- Завантаження та прикріплення файлів до документів.
-- Drag&Drop для завантаження файлів.
+#### Week 6
+- Integration with Google Drive/Dropbox (API for file storage).
+- Uploading and attaching files to documents.
+- Drag&Drop for file uploads.
 
-#### Тиждень 7
-- Теми інтерфейсу (світла/темна).
-- Рефакторинг коду (Frontend + Backend).
-- Юніт-тести для основних модулів.
+#### Week 7
+- Interface themes (light/dark).
+- Code refactoring (Frontend + Backend).
+- Unit tests for core modules.
 
-#### Тиждень 8
-- Інтеграційне тестування.
-- Оптимізація швидкості пошуку та відображення.
-- Деплой проєкту в Docker середовище.
-- Підготовка демонстрації MVP.
+#### Week 8
+- Integration testing.
+- Optimization of search speed and display.
+- Project deployment in Docker environment.
+- MVP demonstration preparation.
 
 ---
 
-### 7. Критерії готовності MVP
-- Користувач може зареєструватися та увійти.
-- Користувач може створювати та редагувати сторінки і нотатки.
-- Документи можна групувати за тегами та в теках.
-- Пошук документів працює.
-- Доступна інтеграція з Dropbox для зберігання файлів.
+### 7. MVP Completion Criteria
+- User can register and log in.
+- User can create and edit pages and notes.
+- Documents can be grouped by tags and in folders.
+- Document search works.
+- Dropbox integration for file storage is available.
