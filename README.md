@@ -57,6 +57,22 @@ Develop a corporate documentation and notes management system with support for t
 - Scalability: containerization support (Docker).
 - API for integrations: REST and basic GraphQL.
 
+#### 4.1 Supported Browsers
+| Browser | Minimum Version | Notes |
+|----------|------------------|--------|
+| Google Chrome | 110+ | Recommended for best performance |
+| Mozilla Firefox | 110+ | Full support for SPA and Markdown editing |
+| Microsoft Edge | 110+ | Fully supported |
+| Safari | 15+ | Tested for macOS and iOS compatibility |
+| Opera | 95+ | Supported for general use |
+
+#### 4.2 Performance
+- **Average request processing time (API):** ≤ 300 ms for standard CRUD operations.
+- **Page load time (SPA):** ≤ 2 seconds on initial load.
+- **Concurrent users:** System must support at least **100 active sessions** simultaneously without degradation of performance.
+- **Download speed for files:** Target average of **≥ 2 MB/s**, depending on network conditions.
+- **File upload and preview processing:** Must complete within **5 seconds** for files ≤ 5 MB.
+
 ---
 
 ### 5. Architecture
@@ -70,7 +86,7 @@ Develop a corporate documentation and notes management system with support for t
 ---
 
 
-### 6. Implementation Stages (MVP, 8 weeks)
+### 6. Implementation Stages (MVP, 8 weeks, starts from 29.30.2025)
 
 #### Week 1
 - Development environment setup (Frontend + Backend).
@@ -116,7 +132,7 @@ Develop a corporate documentation and notes management system with support for t
 
 ### 7. MVP Completion Criteria
 - User can register and log in.
-- User can create and edit pages and notes.
+- User can create and edit documents and notes.
 - Documents can be grouped by tags and in folders.
 - Document search works.
 - Dropbox integration for file storage is available.
