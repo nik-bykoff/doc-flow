@@ -142,14 +142,9 @@ lost+found/
 *.swn
 *.bak
 
-# Docker
-Dockerfile
-Dockerfile.*
-docker-compose*.yml
-.dockerignore
+# Docker runtime and local data
 docker-data/
 .docker/
-.docker-compose/
 docker-compose.override.yml
 
 # Kubernetes
