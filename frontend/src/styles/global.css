@@ -19,6 +19,21 @@ body {
   color: var(--text-primary);
 }
 
+.dark-theme {
+  --pastel-50: #0e1613;
+  --pastel-100: #12201b;
+  --pastel-200: #173028;
+  --pastel-300: #1d4136;
+  --pastel-400: #225243;
+  --pastel-500: #296351;
+  --pastel-600: #31755f;
+  --pastel-700: #39876d;
+  --pastel-800: #41997c;
+  --pastel-900: #49ab8a;
+  --text-primary: #d9efe7;
+  --text-secondary: #b8dfd2;
+}
+
 .btn-primary {
   background-color: var(--pastel-700);
   border-color: var(--pastel-700);
@@ -38,5 +53,11 @@ body {
 /* Utility */
 .text-primary { color: var(--text-primary) !important; }
 .text-secondary { color: var(--text-secondary) !important; }
+
+/* Theme via data attribute */
+[data-theme="dark"] body, [data-theme="dark"] {
+  background: var(--pastel-100);
+  color: var(--text-primary);
+}
 
 

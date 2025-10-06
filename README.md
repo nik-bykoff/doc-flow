@@ -34,6 +34,13 @@ Develop a corporate documentation and notes management system with support for t
   - Title.
   - Tags.
   - Author.
+  - Date.
+- **Advanced filtering options:**
+  - Filter by tags, authors, creation/modification date.
+  - Support for combined search queries (e.g., by tag and author).
+  - Real-time search suggestions as the user types.
+- **Search performance:**  
+  - Must return results in **under 1 second**, even when the database contains **10,000+ documents**.
 
 #### 3.2 Users and Access Rights
 - Registration and authorization (email + password).
@@ -47,12 +54,14 @@ Develop a corporate documentation and notes management system with support for t
 - Modern web interface.
 - Minimalist design with theme support (light/dark).
 - Drag&Drop for uploading files to documents.
+- Sidebar with structured navigation tree (similar to Confluence).
+- Search bar with filters and dynamic results.
 
 ---
 
 ### 4. Non-Functional Requirements
 - The system must be accessible via web browser.
-- Performance: search and document loading no more than 1 second with 10,000 documents.
+- Performance: search and document loading no more than **1 second**, even with **10,000+ documents**.
 - Security: password storage in hashed form (bcrypt/argon2).
 - Scalability: containerization support (Docker).
 - API for integrations: REST and basic GraphQL.
@@ -67,6 +76,7 @@ Develop a corporate documentation and notes management system with support for t
 | Opera | 95+ | Supported for general use |
 
 #### 4.2 Performance
+- **Search and document loading:** ≤ 1 second for up to **10,000 documents**.
 - **Average request processing time (API):** ≤ 300 ms for standard CRUD operations.
 - **Page load time (SPA):** ≤ 2 seconds on initial load.
 - **Concurrent users:** System must support at least **100 active sessions** simultaneously without degradation of performance.
@@ -85,8 +95,7 @@ Develop a corporate documentation and notes management system with support for t
 
 ---
 
-
-### 6. Implementation Stages (MVP, 8 weeks, starts from 29.30.2025)
+### 6. Implementation Stages (MVP, 8 weeks, starts from 29.09.2025)
 
 #### Week 1
 - Development environment setup (Frontend + Backend).
@@ -104,7 +113,7 @@ Develop a corporate documentation and notes management system with support for t
 - Display of documents in lists with filtering by tags capability.
 
 #### Week 4
-- Implementation of document search by title, author, and tags.
+- Implementation of document search by title, author, tags, and date.
 - Basic navigation panel for folders and tags.
 - Optimization of document display (pagination/limits).
 
@@ -134,5 +143,6 @@ Develop a corporate documentation and notes management system with support for t
 - User can register and log in.
 - User can create and edit documents and notes.
 - Documents can be grouped by tags and in folders.
-- Document search works.
+- Document search works with filters by title, tag, author, and date.
 - Dropbox integration for file storage is available.
+- Search results load in under 1 second, even with 10,000+ documents.
