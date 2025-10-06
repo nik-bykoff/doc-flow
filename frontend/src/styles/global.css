@@ -1,0 +1,42 @@
+:root {
+  --pastel-50: #f2fbf4;
+  --pastel-100: #e6f7ea;
+  --pastel-200: #cfeedd;
+  --pastel-300: #b8e5cf;
+  --pastel-400: #a1dcc2;
+  --pastel-500: #8ad3b5;
+  --pastel-600: #74caa7;
+  --pastel-700: #5dc19a;
+  --pastel-800: #46b88d;
+  --pastel-900: #30af80;
+
+  --text-primary: #255b4a;
+  --text-secondary: #3b6f5e;
+}
+
+body {
+  background: var(--pastel-50);
+  color: var(--text-primary);
+}
+
+.btn-primary {
+  background-color: var(--pastel-700);
+  border-color: var(--pastel-700);
+}
+.btn-primary:hover { background-color: var(--pastel-800); border-color: var(--pastel-800); }
+
+.form-control:focus {
+  border-color: var(--pastel-600);
+  box-shadow: 0 0 0 0.2rem rgba(48, 175, 128, 0.25);
+}
+
+.card { border-color: var(--pastel-300); }
+.navbar-light .navbar-brand { color: var(--text-secondary); }
+.navbar-light .nav-link { color: var(--text-secondary); }
+.navbar-light .nav-link.router-link-active { color: var(--pastel-900); }
+
+/* Utility */
+.text-primary { color: var(--text-primary) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+
+
