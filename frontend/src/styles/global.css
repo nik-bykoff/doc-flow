@@ -21,9 +21,9 @@ body {
 
 [data-theme="dark"] {
   /* Darker, higher-contrast greens */
-  --pastel-50: #050a08;   /* page background */
-  --pastel-100: #0a1511;  /* surfaces */
-  --pastel-200: #0f201a;
+  --pastel-50: #162e25;   /* page background */
+  --pastel-100: #132921;  /* surfaces */
+  --pastel-200: #1a392e;
   --pastel-300: #123227;
   --pastel-400: #144133;
   --pastel-500: #15523f;
