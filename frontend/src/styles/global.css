@@ -19,19 +19,20 @@ body {
   color: var(--text-primary);
 }
 
-.dark-theme {
-  --pastel-50: #0e1613;
-  --pastel-100: #12201b;
-  --pastel-200: #173028;
-  --pastel-300: #1d4136;
-  --pastel-400: #225243;
-  --pastel-500: #296351;
-  --pastel-600: #31755f;
-  --pastel-700: #39876d;
-  --pastel-800: #41997c;
-  --pastel-900: #49ab8a;
-  --text-primary: #d9efe7;
-  --text-secondary: #b8dfd2;
+[data-theme="dark"] {
+  /* Darker, higher-contrast greens */
+  --pastel-50: #050a08;   /* page background */
+  --pastel-100: #0a1511;  /* surfaces */
+  --pastel-200: #0f201a;
+  --pastel-300: #123227;
+  --pastel-400: #144133;
+  --pastel-500: #15523f;
+  --pastel-600: #16634b;
+  --pastel-700: #187658;
+  --pastel-800: #1a8966;
+  --pastel-900: #1c9c73;  /* accents */
+  --text-primary: #d2efe6;
+  --text-secondary: #b2d9cd;
 }
 
 .btn-primary {
@@ -54,9 +55,9 @@ body {
 .text-primary { color: var(--text-primary) !important; }
 .text-secondary { color: var(--text-secondary) !important; }
 
-/* Theme via data attribute */
+/* Apply background/text for dark */
 [data-theme="dark"] body, [data-theme="dark"] {
-  background: var(--pastel-100);
+  background: var(--pastel-50);
   color: var(--text-primary);
 }
 

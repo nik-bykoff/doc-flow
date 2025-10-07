@@ -46,5 +46,3 @@ exports.down = async function down(knex) {
   await knex.schema.dropTableIfExists('folders');
   await knex.schema.dropTableIfExists('users');
 };
-
-

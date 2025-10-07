@@ -5,10 +5,12 @@
         {{ isExpanded ? '▾' : '▸' }}
       </button>
       <button class="btn btn-sm btn-link text-decoration-none" @click="$emit('select', node)">{{ node.title }}</button>
+      <button v-if="hasChildren" class="btn btn-sm btn-outline-success ms-auto" title="Add document" @click.stop="$emit('add', node.id)">+
+      </button>
     </div>
     <transition name="fade">
       <div v-if="isExpanded" class="ms-4 mt-2">
-        <TreeItem v-for="child in node.children" :key="child.id" :node="child" @toggle="$emit('toggle', $event)" @select="$emit('select', $event)" />
+        <TreeItem v-for="child in node.children" :key="child.id" :node="child" :expandedIds="expandedIds" @toggle="$emit('toggle', $event)" @select="$emit('select', $event)" @add="$emit('add', $event)" />
       </div>
     </transition>
   </div>
@@ -16,8 +18,11 @@
 
 <script setup>
 import { computed } from 'vue'
-const props = defineProps({ node: { type: Object, required: true }})
+const props = defineProps({ node: { type: Object, required: true }, expandedIds: { type: Object, required: false }})
 const isExpanded = computed(() => {
+  if (props.expandedIds && Array.isArray(props.expandedIds)) {
+    return props.expandedIds.includes(props.node.id)
+  }
   const expanded = JSON.parse(localStorage.getItem('expanded') || '[]')
   return expanded.includes(props.node.id)
 })
@@ -28,5 +33,3 @@ const hasChildren = computed(() => (props.node.children || []).length > 0)
 .fade-enter-active, .fade-leave-active { transition: opacity .15s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 </style>
-
-

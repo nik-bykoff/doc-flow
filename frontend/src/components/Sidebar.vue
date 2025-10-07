@@ -6,8 +6,10 @@
         v-for="item in filteredTree"
         :key="item.id"
         :node="item"
+        :expandedIds="expanded"
         @toggle="onToggle"
         @select="onSelect"
+        @add="onAdd"
       />
     </div>
   </div>
@@ -15,38 +17,35 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useDocumentsStore } from '../stores/documents'
 import TreeItem from './TreeItem.vue'
 
-const defaultTree = [
-  { id: 'pages', title: 'Pages', children: [
-    { id: 'welcome', title: 'Welcome', children: [] },
-    { id: 'getting-started', title: 'Getting Started', children: [
-      { id: 'install', title: 'Install', children: [] },
-      { id: 'configure', title: 'Configure', children: [] }
-    ]}
-  ]},
-  { id: 'notes', title: 'Notes', children: [
-    { id: 'ideas', title: 'Ideas', children: [] }
-  ]}
-]
+const router = useRouter()
+const docs = useDocumentsStore()
 
-const expanded = ref(JSON.parse(localStorage.getItem('expanded') || '[]'))
+const expanded = ref(docs.expanded)
 const query = ref('')
 
-const filteredTree = computed(() => filterTree(defaultTree, query.value))
+const filteredTree = computed(() => filterTree(docs.tree, query.value))
 
-watch(expanded, (val) => {
-  localStorage.setItem('expanded', JSON.stringify(val))
-}, { deep: true })
+watch(expanded, (val) => { docs.setExpanded(val) }, { deep: true })
 
 function onToggle(id) {
-  const idx = expanded.value.indexOf(id)
-  if (idx >= 0) expanded.value.splice(idx, 1)
-  else expanded.value.push(id)
+  docs.toggleExpanded(id)
 }
 
 function onSelect(node) {
-  // In a real app, navigate to the document route
+  docs.selectDocument(node.id)
+  router.push(`/documents/${node.id}`)
+}
+
+function onAdd(parentId) {
+  const newDoc = docs.addDocument(parentId)
+  if (newDoc) {
+    docs.selectDocument(newDoc.id)
+    router.push(`/documents/${newDoc.id}`)
+  }
 }
 
 function isMatch(node, q) {
