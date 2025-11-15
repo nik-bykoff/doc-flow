@@ -1,0 +1,14 @@
+# Force Unix line endings for shell scripts
+*.sh text eol=lf
+
+# Force Unix line endings for Docker files
+Dockerfile text eol=lf
+docker-compose.yml text eol=lf
+
+# Force Unix line endings for config files
+*.json text eol=lf
+*.js text eol=lf
+*.env text eol=lf
+
+# Default to LF for all text files
+* text=auto eol=lf
