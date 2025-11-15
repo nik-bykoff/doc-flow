@@ -17,5 +17,3 @@ npx knex migrate:latest --knexfile ./knexfile.js
 
 # Start server
 npm run dev
-
-
